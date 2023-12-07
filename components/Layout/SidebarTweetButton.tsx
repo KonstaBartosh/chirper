@@ -31,7 +31,7 @@ const SidebarTweetButton = () => {
           lg:block
           px-4
           py-2
-          rounded-full
+          rounded-xl
           bg-sky-500
           hover:opacity-90
           cursor-pointer
