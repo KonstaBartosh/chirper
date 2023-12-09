@@ -3,7 +3,7 @@ import fetcher from "@/libs/fetcher";
 
 const useCurrentUser = () => {
   // Используем хук useSWR для получения данных о текущем пользователе из API
-  const { data, error, isLoading, mutate } = useSWR('api/current', fetcher);
+  const { data, error, isLoading, mutate } = useSWR( 'api/current', fetcher);
 
   // Возвращаем объект с данными о пользователе и функцию mutate
   return {

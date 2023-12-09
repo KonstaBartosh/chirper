@@ -1,6 +1,9 @@
+import { useCallback, useState } from "react";
+import { signIn } from "next-auth/react";
+
 import useLoginModal from "@/hooks/useLoginModal";
 import useRegisterModal from "@/hooks/useRegisterModal";
-import { useCallback, useState } from "react";
+
 import Input from "../Input";
 import Modal from "../Modal";
 
@@ -25,17 +28,14 @@ const LoginModal = () => {
   const onSubmit = useCallback(async () => {
     try {
       setIsloading(true);
-
-      // TODO: Добавить фактическую логику входа здесь
-
-      // Закрыть модальное окно после входа в систему
+      signIn('credentials', { email, password });
       loginModal.onClose();
     } catch (err) {
       console.error(err);
     } finally {
       setIsloading(false);
     }
-  }, [loginModal])
+  }, [email, loginModal, password])
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -47,6 +47,7 @@ const LoginModal = () => {
       />
       <Input
         placeholder="Пароль"
+        type="password"
         onChange={(evt) => setPassword(evt.target.value)}
         value={password}
         disabled={isLoading}
