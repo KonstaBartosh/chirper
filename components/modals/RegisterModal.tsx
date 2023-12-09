@@ -1,6 +1,9 @@
+import axios from "axios";
+import { useCallback, useState } from "react";
+
 import useRegisterModal from "@/hooks/useRegisterModal";
 import useLoginModal from "@/hooks/useLoginModal";
-import { useCallback, useState } from "react";
+
 import Input from "../Input";
 import Modal from "../Modal";
 
@@ -28,16 +31,20 @@ const RegisterModal = () => {
     try {
       setIsloading(true);
 
-      // TODO: Добавить фактическую логику входа здесь
+      await axios.post('api/register', {
+        email,
+        password,
+        userName,
+        name
+      })
 
-      // Закрыть модальное окно после входа в систему
       registerModal.onClose();
     } catch (err) {
       console.error(err);
     } finally {
       setIsloading(false);
     }
-  }, [registerModal])
+  }, [email, name, password, registerModal, userName])
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
