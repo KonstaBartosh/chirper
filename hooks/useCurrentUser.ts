@@ -1,4 +1,3 @@
-// Импортируем библиотеку useSWR и функцию fetcher
 import useSWR from "swr";
 import fetcher from "@/libs/fetcher";
 
