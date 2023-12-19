@@ -8,7 +8,7 @@ const useUsers = () => {
     error, 
     isLoading, 
     mutate 
-  } = useSWR('api/users', fetcher);
+  } = useSWR('/api/users', fetcher);
 
   // Возвращаем объект с данными о пользователе и функцию mutate
   return {
