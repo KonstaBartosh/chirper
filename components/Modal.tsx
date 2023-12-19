@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import React, { useCallback } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 
 import Button from "./Button";
@@ -33,6 +33,12 @@ const Modal = ({
     onClose();
   },[disabled, onClose])
 
+  const handleOverlayClose = (evt: React.MouseEvent) => {
+    if (evt.target === evt.currentTarget) {
+      onClose();
+    }
+  }
+
   const handleSubmit = useCallback(() => {
     if (disabled) {
       return;
@@ -48,6 +54,7 @@ const Modal = ({
   return(
     <>
       <div
+        onClick={handleOverlayClose}
         className="
           flex
           justify-center
@@ -59,7 +66,7 @@ const Modal = ({
           z-50
           outline-none
           focus:outline-none
-          bg-neutral-800
+          bg-neutral-900
           bg-opacity-70
         "
       >
