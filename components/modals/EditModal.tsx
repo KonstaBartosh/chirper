@@ -8,6 +8,7 @@ import useEditModal from "@/hooks/useEditModal";
 import useUser from "@/hooks/useUser";
 import Modal from "../Modal";
 import Input from "../Input";
+import ImageUpload from "../imageUpload";
 
 const EditModal = () => {
   const { data: currentUser } = useCurrentUser();
@@ -28,18 +29,24 @@ const EditModal = () => {
     setProfileImage(currentUser?.profileImage);
     setCoverImage(currentUser?.coverImage);
   }, [
-    currentUser?.bio, 
-    currentUser?.coverImage, 
-    currentUser?.name, 
-    currentUser?.profileImage, 
-    currentUser?.username
+    currentUser?.bio,
+    currentUser?.coverImage,
+    currentUser?.name,
+    currentUser?.profileImage,
+    currentUser?.username,
   ]);
 
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);
 
-      await axios.patch("/api/edit", { name, username, bio, profileImage,coverImage });
+      await axios.patch("/api/edit", {
+        name,
+        username,
+        bio,
+        profileImage,
+        coverImage,
+      });
 
       mutateFetchedUser();
 
@@ -64,6 +71,17 @@ const EditModal = () => {
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
+      <ImageUpload
+        onChange={(image) => setProfileImage(image)}
+        label="Загрузите свой аватар"
+        value={profileImage}
+        disabled={isLoading}
+      />
+      <ImageUpload
+        onChange={(image) => setCoverImage(image)}
+        label="Загрузите свой фоновый рисунок"
+        disabled={isLoading}
+      />
       <Input
         placeholder="Имя"
         onChange={(evt) => setName(evt.target.value)}
