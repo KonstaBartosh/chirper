@@ -18,7 +18,7 @@ const Button = ({
       className={`
         disabled:opacity-70
         disabled:cursor-not-allowed
-        rounded-md
+        rounded-full
         font-semibold
         hover:opacity-80
         border-2
