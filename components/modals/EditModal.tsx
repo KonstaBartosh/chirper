@@ -8,7 +8,7 @@ import useEditModal from "@/hooks/useEditModal";
 import useUser from "@/hooks/useUser";
 import Modal from "../Modal";
 import Input from "../Input";
-import ImageUpload from "../imageUpload";
+import ImageUpload from "../ImageUpload";
 
 const EditModal = () => {
   const { data: currentUser } = useCurrentUser();
