@@ -6,6 +6,7 @@ import { ru } from 'date-fns/locale';
 import useCurrentUser from "@/hooks/useCurrentUser";
 import useUser from "@/hooks/useUser";
 import useEditModal from "@/hooks/useEditModal";
+import useFollow from "@/hooks/useFollow";
 
 import Button from "../Button";
 
@@ -17,7 +18,10 @@ interface UserBioProps {
 const UserBio = ({ userId }: UserBioProps) => {
   const { data: fetchedUser } = useUser(userId);
   const { data: currentUser } = useCurrentUser();
+
   const editModal  = useEditModal();
+
+  const { isFollowing, toggleFollow } = useFollow(userId);
 
   const createdAt = useMemo(() => {
     if (!fetchedUser?.createdAt) {
@@ -31,9 +35,18 @@ const UserBio = ({ userId }: UserBioProps) => {
     <div className="border-b-[1px] border-neutral-800 pb-4">
       <div className="flex justify-end p-2">
         {currentUser?.id === userId ? (
-          <Button label="Редактировать" secondary onClick={editModal.onOpen}/>
+          <Button
+            label="Редактировать"
+            onClick={editModal.onOpen}
+            secondary 
+          />
         ) : (
-          <Button label="Подписаться" secondary onClick={() => {}}/>
+          <Button
+            label={isFollowing ? 'Отписаться' : 'Подписаться'} 
+            onClick={toggleFollow}
+            secondary={!isFollowing}
+            outline={isFollowing}
+          />
         )}
       </div>
       <div className="mt-8 px-4">
@@ -60,7 +73,7 @@ const UserBio = ({ userId }: UserBioProps) => {
                 {fetchedUser?.folowingIds?.length}
               </p>
               <p className="text-neutral-500">
-                Подписаны
+                Подписка
               </p>
             </div>
             <div className="flex flex-row items-center gap-1">
@@ -68,7 +81,7 @@ const UserBio = ({ userId }: UserBioProps) => {
                 {fetchedUser?.followersCount || 0}
               </p>
               <p className="text-neutral-500">
-                Подписок
+                Фловеров
               </p>
             </div>
           </div>
