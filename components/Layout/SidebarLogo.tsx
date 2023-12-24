@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { BsTwitter } from 'react-icons/bs';
+import { PiBirdLight } from "react-icons/pi"
 
 const SidebarLogo = () => {
   const router = useRouter();
@@ -20,7 +20,7 @@ const SidebarLogo = () => {
         cursor-pointer
         transition
     '>
-      <BsTwitter size={28} color='white' />
+      <PiBirdLight size={36} color='white'/>
     </div>
   )
 }
