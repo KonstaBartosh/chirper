@@ -81,7 +81,7 @@ const UserBio = ({ userId }: UserBioProps) => {
                 {fetchedUser?.followersCount || 0}
               </p>
               <p className="text-neutral-500">
-                Фловеров
+                Фоловеров
               </p>
             </div>
           </div>
