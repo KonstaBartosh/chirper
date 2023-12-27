@@ -5,14 +5,13 @@ import { BiArrowBack } from "react-icons/bi";
 interface HeaderProps {
   label: string;
   showBackArrow?: boolean;
-
 }
 
 const Header = ({ label, showBackArrow }: HeaderProps) => {
   const router = useRouter();
 
   const handleBack = useCallback(() => {
-    router.back
+    router.back()
   }, [router]);
 
 
