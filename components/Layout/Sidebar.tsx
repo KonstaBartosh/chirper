@@ -39,7 +39,7 @@ const Sidebar = () => {
   ]
   
   return(
-    <nav className=' bg-cyan-950 col-span-1 h-full pr-4 md:pr-6 pt-4'>
+    <nav className='col-span-1 h-full pr-4 md:pr-6 pt-4'>
       <div className='flex flex-col items-end'>
         <div className='space-y-2 lg:w-[230px]'>
           <SidebarLogo />
