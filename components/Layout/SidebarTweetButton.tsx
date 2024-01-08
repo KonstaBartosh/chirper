@@ -52,7 +52,7 @@ const SidebarTweetButton = () => {
           transition
         ">
           <p className="hidden lg:block text-center font-semibold text-white text-[20px]">
-            Tweet
+            Написать
           </p>
       </div>
     </div>
