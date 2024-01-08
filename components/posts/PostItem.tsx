@@ -77,7 +77,7 @@ const PostItem = ({ data, userId }: PostItemProps) => {
             <span className="text-sm text-neutral-500">{createdAt}</span>
           </div>
           <div className="text-white mt-1">{data.body}</div>
-          <div className="flex items-center mt-3 gap-10">
+          {/* <div className="flex items-center mt-3 gap-10">
             <div
               className="
                 flex
@@ -107,7 +107,7 @@ const PostItem = ({ data, userId }: PostItemProps) => {
               <AiOutlineHeart size={20} />
               <p>{data.comments?.length || 0}</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
