@@ -20,18 +20,12 @@ const Sidebar = () => {
 
   const items = [
     {
-      label: 'Home',
+      label: 'Главная',
       href: '/',
       icon: BsHouseFill
     },
     {
-      label: 'Notifications',
-      href: '/notifications',
-      icon: BsBellFill,
-      auth: true
-    },
-    {
-      label: 'Profile',
+      label: 'Профиль',
       href: `/users/${currentUser?.id}`,
       icon: FaUser,
       auth: true
