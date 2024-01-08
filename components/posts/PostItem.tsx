@@ -20,8 +20,6 @@ const PostItem = ({ data, userId }: PostItemProps) => {
 
   const { data: currentUser } = useCurrentUser();
 
-  console.log(`data: ${data.createdAt}`);
-
   const goToUser = useCallback(
     (evt: any) => {
       evt.stopPropagation();
