@@ -1,4 +1,4 @@
-# Разработка fullstack приложения: Chirper c помощью: React, Tailwind, Next.js, Prisma, MongoDB, NextAuth и Vercel
+# Разработка fullstack приложения Chirper c помощью: React, Tailwind, Next.js, Prisma, MongoDB, NextAuth и Vercel
 
 ![Fullstack Twitter Clone](./public/images/thumbnail.png)
 
@@ -11,7 +11,7 @@ Chirper - одностраничное приложение: микро-блог
 - Адаптивная верстка
 - Загрузка изображений с компьютера напрямую
 - Настройка Prisma ORM и MongoDB (с помощью туториала)
-- Система аутентификации (с помощью туториала)
+- Настроена система аутентификации NextAuth (с помощью туториала)
 - Запросы Api (с помощью туториала)
 - Деплой на Vercel
 
