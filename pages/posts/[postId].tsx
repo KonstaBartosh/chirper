@@ -4,6 +4,7 @@ import { ClipLoader } from "react-spinners";
 import usePost from "@/hooks/usePost";
 import Header from "@/components/Header";
 import PostItem from "@/components/posts/PostItem";
+import Form from "@/components/Form";
 
 const PostView = () => {
   const router = useRouter();

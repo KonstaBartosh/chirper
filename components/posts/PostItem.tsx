@@ -62,21 +62,19 @@ const PostItem = ({ data, userId }: PostItemProps) => {
       transition
     "
     >
-      <div className="flex items-start gap-3">
+      <div className="flex items-start gap-3" onClick={goToPost}>
         <Avatar userId={data.user.id} />
         <div>
           <div className="flex items-center gap-2">
             <p
               onClick={goToUser}
               className="text-white font-semibold cursor-pointer hover:underline"
-            >
-              {data.user.name}
+            >{data.user.name}
             </p>
             <span
               onClick={goToUser}
               className="hidden text-neutral-500 cursor-pointer hover:underline md:block"
-            >
-              @{data.user.username}
+            >@{data.user.username}
             </span>
             <span className="text-sm text-neutral-500">{createdAt}</span>
           </div>
