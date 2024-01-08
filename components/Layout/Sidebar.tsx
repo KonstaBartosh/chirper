@@ -12,12 +12,6 @@ import useCurrentUser from '@/hooks/useCurrentUser';
 const Sidebar = () => {
   const { data: currentUser } = useCurrentUser();
 
-  if (currentUser) {
-    console.log('Пользователь аутентифицирован:', currentUser);
-  } else {
-    console.log('Пользователь не аутентифицирован');
-  }
-
   const items = [
     {
       label: 'Главная',

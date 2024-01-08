@@ -1,9 +1,8 @@
-import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useCallback } from "react";
 import { IconType } from "react-icons";
 
-//import useCurrentUser from "@/hooks/useCurrentUser";
+import useCurrentUser from "@/hooks/useCurrentUser";
 import useLoginModal from "@/hooks/useLoginModal";
 
 interface SidebarItemProps {
@@ -22,23 +21,23 @@ const SidebarItem = ({
   auth
 }: SidebarItemProps) => {
   const router = useRouter();
-  //const { data: currentUser } = useCurrentUser();
-  const { data: session } = useSession();
+
+  const { data: currentUser } = useCurrentUser();
+
   const loginModal = useLoginModal();
 
   const handleClick = useCallback(() => {
-
     if (onClick) {
       return onClick();
     }
 
-    if (auth && !session) {
+    if (auth && !currentUser) {
       loginModal.onOpen();
     } else if (href) {
       router.push(href);
     } 
 
-  }, [auth, href, loginModal, onClick, router, session])
+  }, [auth, href, loginModal, onClick, router, currentUser])
 
   return(
     <div onClick={handleClick} className='flex flex-row items-center'>
